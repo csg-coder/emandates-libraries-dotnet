@@ -1,0 +1,126 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="12.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{5D4E6E3F-1969-4CBC-9F20-3C9F80A5B74C}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>eMandates.Merchant.Library</RootNamespace>
+    <AssemblyName>eMandates.Merchant.Library</AssemblyName>
+    <TargetFrameworkVersion>v4.5</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <NoWarn>0169</NoWarn>
+    <DocumentationFile>bin\Debug\eMandates.Merchant.Library.xml</DocumentationFile>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <NoWarn>0169</NoWarn>
+    <DocumentationFile>bin\Release\eMandates.Merchant.Library.xml</DocumentationFile>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System" />
+    <Reference Include="System.Configuration" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Deployment" />
+    <Reference Include="System.Net.Http" />
+    <Reference Include="System.Security" />
+    <Reference Include="System.Web.Extensions" />
+    <Reference Include="System.Xml" />
+    <Reference Include="System.Xml.Linq" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="AcceptanceReport.cs" />
+    <Compile Include="AmendmentRequest.cs" />
+    <Compile Include="AmendmentResponse.cs" />
+    <Compile Include="CancellationRequest.cs" />
+    <Compile Include="CancellationResponse.cs" />
+    <Compile Include="CommunicatorException.cs" />
+    <Compile Include="Configuration\CertificateStoreLoader.cs" />
+    <Compile Include="Configuration\ILoggerFactory.cs" />
+    <Compile Include="Configuration\Instrumentation.cs" />
+    <Compile Include="Configuration\LoggerFactory.cs" />
+    <Compile Include="Misc\MessageIdGenerator.cs" />
+    <Compile Include="NewMandateRequest.cs" />
+    <Compile Include="NewMandateResponse.cs" />
+    <Compile Include="MessageBuilders\MessageBuilder.eMandate.cs" />
+    <Compile Include="MessageBuilders\MessageBuilder.idx.cs" />
+    <Compile Include="Configuration\ICertificateLoader.cs" />
+    <Compile Include="Communicator.cs" />
+    <Compile Include="ICommunicator.cs" />
+    <Compile Include="Configuration\Configuration.cs" />
+    <Compile Include="Configuration\IConfiguration.cs" />
+    <Compile Include="Configuration\ILogger.cs" />
+    <Compile Include="Configuration\Logger.cs" />
+    <Compile Include="DirectoryResponse.cs" />
+    <Compile Include="ErrorResponse.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="SequenceType.cs" />
+    <Compile Include="StatusRequest.cs" />
+    <Compile Include="StatusResponse.cs" />
+    <Compile Include="XML\IXmlProcessor.cs" />
+    <Compile Include="XML\Schemas\pain_009_001_04.cs" />
+    <Compile Include="XML\Schemas\pain_010_001_04.cs" />
+    <Compile Include="XML\Schemas\pain_011_001_04.cs" />
+    <Compile Include="XML\Schemas\pain_012_001_04.cs" />
+    <Compile Include="XML\Schemas\xmldsigcore-schema_modified_idx_merchant-acquirer_1_0_0.cs" />
+    <Compile Include="XML\Utils\EmandatesSignatureService.cs" />
+    <Compile Include="XML\Utils\PrefixedSignedXml.cs" />
+    <Compile Include="XML\Utils\RSAPKCS1SHA256SignatureDescription.cs" />
+    <Compile Include="XML\Utils\XmlSignature.cs" />
+    <Compile Include="XML\XmlProcessor.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="app.config" />
+    <EmbeddedResource Include="..\..\Common\XML Schemas 2015.02.17\idx.merchant-acquirer.1.0.xsd">
+      <SubType>Designer</SubType>
+      <Link>XML\idx.merchant-acquirer.1.0.xsd</Link>
+    </EmbeddedResource>
+    <EmbeddedResource Include="..\..\Common\XML Schemas 2015.02.17\pain.009.001.04.xsd">
+      <SubType>Designer</SubType>
+      <Link>XML\pain.009.001.04.xsd</Link>
+    </EmbeddedResource>
+    <EmbeddedResource Include="..\..\Common\XML Schemas 2015.02.17\pain.010.001.04.xsd">
+      <SubType>Designer</SubType>
+      <Link>XML\pain.010.001.04.xsd</Link>
+    </EmbeddedResource>
+    <EmbeddedResource Include="..\..\Common\XML Schemas 2015.02.17\pain.011.001.04.xsd">
+      <SubType>Designer</SubType>
+      <Link>XML\pain.011.001.04.xsd</Link>
+    </EmbeddedResource>
+    <EmbeddedResource Include="..\..\Common\XML Schemas 2015.02.17\pain.012.001.04.xsd">
+      <SubType>Designer</SubType>
+      <Link>XML\pain.012.001.04.xsd</Link>
+    </EmbeddedResource>
+    <EmbeddedResource Include="..\..\Common\XML Schemas 2015.02.17\xmldsig-core-schema.xsd">
+      <SubType>Designer</SubType>
+      <Link>XML\xmldsig-core-schema.xsd</Link>
+    </EmbeddedResource>
+    <None Include="Classes.cd" />
+  </ItemGroup>
+  <ItemGroup />
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>
