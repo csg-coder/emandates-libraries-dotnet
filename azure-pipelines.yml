@@ -30,5 +30,15 @@ steps:
     configuration: '$(buildConfiguration)'
 
 
-- publish: $(System.DefaultWorkingDirectory)\DotNet\eMandates.Merchant.Library\bin\Debug
-  artifact: lib
+- task: CopyFiles@2
+  displayName: 'Copy Files to: $(Build.ArtifactStagingDirectory)'
+  inputs:
+    Contents: |
+     DotNet\eMandates.Merchant.Library\bin\Debug\*
+    TargetFolder: '$(Build.ArtifactStagingDirectory)'
+
+- task: PublishBuildArtifacts@1
+  inputs:
+    pathToPublish: $(Build.ArtifactStagingDirectory)
+    artifactName: MyBuildOutputs
+    
