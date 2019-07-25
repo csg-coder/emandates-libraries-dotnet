@@ -42,9 +42,25 @@ steps:
   displayName: 'Copy Sample Code'
   inputs:
     #Contents: "**"
+    SourceFolder: "$(Build.SourcesDirectory)\\DotNet\\eMandates.Merchant.Libray"
+    Contents: "**"
+    TargetFolder: '$(Build.SourcesDirectory)\\TEMP\\Sample Code'
+
+- task: CopyFiles@2
+  displayName: 'Copy Sample Code'
+  inputs:
+    #Contents: "**"
     SourceFolder: "$(Build.SourcesDirectory)\\DotNet\\eMandates.Merchant.Website"
     Contents: "**"
     TargetFolder: '$(Build.SourcesDirectory)\\TEMP\\Sample Code'
+
+- task: CopyFiles@2
+  displayName: 'Copy sln file'
+  inputs:
+    #Contents: "**"
+    SourceFolder: "$(Build.SourcesDirectory)\\DotNet"
+    Contents: "eMandates.Merchant.Library.sln"
+    TargetFolder: '$(Build.SourcesDirectory)\\TEMP\\'
 
 - task: CopyFiles@2
   displayName: 'Copy ChangeLog.txt'
