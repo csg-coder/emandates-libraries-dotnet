@@ -42,25 +42,12 @@ steps:
   displayName: 'Copy Sample library'
   inputs:
     #Contents: "**"
-    SourceFolder: "$(Build.SourcesDirectory)\\DotNet\\eMandates.Merchant.Library"
-    Contents: "**"
-    TargetFolder: '$(Build.SourcesDirectory)\\TEMP\\Sample Code'
-
-- task: CopyFiles@2
-  displayName: 'Copy Sample Code'
-  inputs:
-    #Contents: "**"
-    SourceFolder: "$(Build.SourcesDirectory)\\DotNet\\eMandates.Merchant.Website"
-    Contents: "**"
-    TargetFolder: '$(Build.SourcesDirectory)\\TEMP\\Sample Code'
-
-- task: CopyFiles@2
-  displayName: 'Copy sln file'
-  inputs:
-    #Contents: "**"
     SourceFolder: "$(Build.SourcesDirectory)\\DotNet"
-    Contents: "eMandates.Merchant.Library.sln"
-    TargetFolder: '$(Build.SourcesDirectory)\\TEMP\\'
+    Contents: |
+      eMandates.Merchant.Library\\**
+      eMandates.Merchant.Website\\**
+      eMandates.Merchant.Library.sln
+    TargetFolder: '$(Build.SourcesDirectory)\\TEMP\\Sample Code'
 
 - task: CopyFiles@2
   displayName: 'Copy ChangeLog.txt'
@@ -77,8 +64,6 @@ steps:
     archiveType: 'zip'
     archiveFile: '$(Build.ArtifactStagingDirectory)/eMandates.DotNet.Creditor.Libraries.$(VAR_VERSION).zip'
     replaceExistingArchive: true
-
-
 
 #- task: CopyFiles@2
 #  displayName: 'Copy Files to: $(Build.ArtifactStagingDirectory)'
