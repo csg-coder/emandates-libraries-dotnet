@@ -44,6 +44,13 @@ steps:
     Contents: "$(Build.SourcesDirectory)\\DotNet\\eMandates.Merchant.Website\\**"
     TargetFolder: '$(Build.SourcesDirectory)\\TEMP\\Sample Code'
 
+- task: CopyFiles@2
+  displayName: 'Copy $(Build.SourcesDirectory)\\DotNet\\ChangeLog.txt'
+  inputs:
+    #Contents: "**"
+    Contents: "$(Build.SourcesDirectory)\\DotNet\\ChangeLog.txt"
+    TargetFolder: '$(Build.SourcesDirectory)\\TEMP\\'
+
 - task: ArchiveFiles@2
   inputs:
     rootFolderOrFile: '$(Build.SourcesDirectory)\\TEMP\\'
@@ -53,12 +60,6 @@ steps:
     replaceExistingArchive: true
 
 
-- task: CopyFiles@2
-  displayName: 'Copy $(Build.SourcesDirectory)\\DotNet\\ChangeLog.txt'
-  inputs:
-    #Contents: "**"
-    Contents: "$(Build.SourcesDirectory)\\DotNet\\ChangeLog.txt"
-    TargetFolder: '$(Build.SourcesDirectory)\\TEMP\\'
 
 #- task: CopyFiles@2
 #  displayName: 'Copy Files to: $(Build.ArtifactStagingDirectory)'
