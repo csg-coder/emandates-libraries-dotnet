@@ -31,24 +31,27 @@ steps:
     configuration: '$(buildConfiguration)'
 
 - task: CopyFiles@2
-  displayName: 'Copy Files to: $(Build.SourcesDirectory)\\TEMP\\Library'
+  displayName: 'Copy Library'
   inputs:
     #Contents: "**"
-    Contents: "$(Build.SourcesDirectory)\\DotNet\\eMandates.Merchant.Library\\bin\\Release\\**"
+    SourceFolder: "$(Build.SourcesDirectory)\\DotNet\\eMandates.Merchant.Library\\bin\\Release"
+    Contents: "**"
     TargetFolder: '$(Build.SourcesDirectory)\\TEMP\\Library'
 
 - task: CopyFiles@2
-  displayName: 'Copy Files to: $(Build.SourcesDirectory)\\TEMP\\Sample Code'
+  displayName: 'Copy Sample Code'
   inputs:
     #Contents: "**"
-    Contents: "$(Build.SourcesDirectory)\\DotNet\\eMandates.Merchant.Website\\**"
+    SourceFolder: "$(Build.SourcesDirectory)\\DotNet\\eMandates.Merchant.Website"
+    Contents: "**"
     TargetFolder: '$(Build.SourcesDirectory)\\TEMP\\Sample Code'
 
 - task: CopyFiles@2
-  displayName: 'Copy $(Build.SourcesDirectory)\\DotNet\\ChangeLog.txt'
+  displayName: 'Copy ChangeLog.txt'
   inputs:
     #Contents: "**"
-    Contents: "$(Build.SourcesDirectory)\\DotNet\\ChangeLog.txt"
+    SourceFolder: "$(Build.SourcesDirectory)\\DotNet"
+    Contents: "ChangeLog.txt"
     TargetFolder: '$(Build.SourcesDirectory)\\TEMP\\'
 
 - task: ArchiveFiles@2
