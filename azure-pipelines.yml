@@ -30,12 +30,26 @@ steps:
     platform: '$(buildPlatform)'
     configuration: '$(buildConfiguration)'
 
+- task: CopyFiles@2
+  displayName: 'Copy Files to: $(Build.SourcesDirectory)\\TEMP\\Library'
+  inputs:
+    #Contents: "**"
+    Contents: "$(Build.SourcesDirectory)\\DotNet\\eMandates.Merchant.Library\\bin\\Release\\*"
+    TargetFolder: '$(Build.SourcesDirectory)\\TEMP\\Library'
+
+- task: CopyFiles@2
+  displayName: 'Copy Files to: $(Build.SourcesDirectory)\\TEMP\\Sample Code'
+  inputs:
+    #Contents: "**"
+    Contents: "$(Build.SourcesDirectory)\\DotNet\\eMandates.Merchant.Website\\**"
+    TargetFolder: '$(Build.SourcesDirectory)\\TEMP\\Sample Code'
+
 - task: ArchiveFiles@2
   inputs:
-    rootFolderOrFile: '$(Build.SourcesDirectory)\\DotNet\\eMandates.Merchant.Library\\bin\\Release\\'
+    rootFolderOrFile: '$(Build.SourcesDirectory)\\TEMP\\'
     includeRootFolder: false
     archiveType: 'zip'
-    archiveFile: '$(Build.ArtifactStagingDirectory)/$(Build.BuildId)-library.zip'
+    archiveFile: '$(Build.ArtifactStagingDirectory)/eMandates.DotNet.Creditor.Libraries.$(VAR_VERSION).zip'
     replaceExistingArchive: true
   
 #- task: CopyFiles@2
