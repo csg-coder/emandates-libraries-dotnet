@@ -39,10 +39,10 @@ steps:
     TargetFolder: '$(Build.SourcesDirectory)\\TEMP\\Library'
 
 - task: CopyFiles@2
-  displayName: 'Copy Sample Code'
+  displayName: 'Copy Sample library'
   inputs:
     #Contents: "**"
-    SourceFolder: "$(Build.SourcesDirectory)\\DotNet\\eMandates.Merchant.Libray"
+    SourceFolder: "$(Build.SourcesDirectory)\\DotNet\\eMandates.Merchant.Library"
     Contents: "**"
     TargetFolder: '$(Build.SourcesDirectory)\\TEMP\\Sample Code'
 
