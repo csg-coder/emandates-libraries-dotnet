@@ -32,7 +32,7 @@ steps:
 
 - task: ArchiveFiles@2
   inputs:
-    rootFolderOrFile: '$(Build.SourcesDirectory)\\DotNet\\eMandates.Merchant.Library\\bin\\Release\\*'
+    rootFolderOrFile: '$(Build.SourcesDirectory)\\DotNet\\eMandates.Merchant.Library\\bin\\Release\\'
     includeRootFolder: false
     archiveType: 'zip'
     archiveFile: '$(Build.ArtifactStagingDirectory)/$(Build.BuildId)-library.zip'
