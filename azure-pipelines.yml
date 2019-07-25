@@ -1,5 +1,6 @@
 # .NET Desktop
 
+
 trigger:
 - master
 
@@ -29,13 +30,20 @@ steps:
     platform: '$(buildPlatform)'
     configuration: '$(buildConfiguration)'
 
-
-- task: CopyFiles@2
-  displayName: 'Copy Files to: $(Build.ArtifactStagingDirectory)'
+- task: ArchiveFiles@2
   inputs:
-    #Contents: "**"
-    Contents: "$(Build.SourcesDirectory)\\DotNet\\eMandates.Merchant.Library\\bin\\Release\\*"
-    TargetFolder: '$(Build.ArtifactStagingDirectory)'
+    rootFolderOrFile: '$(Build.SourcesDirectory)\\DotNet\\eMandates.Merchant.Library\\bin\\Release\\*'
+    includeRootFolder: false
+    archiveType: 'zip'
+    archiveFile: '$(Build.ArtifactStagingDirectory)/$(Build.BuildId)-library.zip'
+    replaceExistingArchive: true
+  
+#- task: CopyFiles@2
+#  displayName: 'Copy Files to: $(Build.ArtifactStagingDirectory)'
+#  inputs:
+#    #Contents: "**"
+#    Contents: "$(Build.SourcesDirectory)\\DotNet\\eMandates.Merchant.Library\\bin\\Release\\*"
+#    TargetFolder: '$(Build.ArtifactStagingDirectory)'
 
 - task: PublishBuildArtifacts@1
   inputs:
